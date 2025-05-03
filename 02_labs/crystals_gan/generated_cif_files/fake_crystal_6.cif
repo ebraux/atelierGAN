@@ -1,0 +1,36 @@
+# generated using pymatgen
+data_KCaVFeTcGeMoAsSe2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.80487679
+_cell_length_b   7.75069568
+_cell_length_c   11.22342491
+_cell_angle_alpha   82.22089543
+_cell_angle_beta   81.16289249
+_cell_angle_gamma   72.22501835
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   KCaVFeTcGeMoAsSe2
+_chemical_formula_sum   'K1 Ca1 V1 Fe1 Tc1 Ge1 Mo1 As1 Se2'
+_cell_volume   473.04463554
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Tc  Tc0  1  0.14171374  0.75979215  0.84836501  1
+  Mo  Mo1  1  0.26080090  0.17663997  0.20787504  1
+  As  As2  1  0.53848410  0.41047764  0.35909888  1
+  Se  Se3  1  0.37317634  0.06707841  0.57226706  1
+  Ge  Ge4  1  0.88599253  0.65242106  0.36127293  1
+  Se  Se5  1  0.86430264  0.40686724  0.20468712  1
+  Fe  Fe6  1  0.91045426  0.91814970  0.58548987  1
+  V  V7  1  0.81372088  0.72043169  0.63807899  1
+  Ca  Ca8  1  0.10678861  0.82771486  0.85464782  1
+  K  K9  1  0.36328584  0.09810567  0.38583702  1

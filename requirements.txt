@@ -1,0 +1,8 @@
+torch
+torchvision
+rdkit
+pymatgen
+mlflow
+notebook
+pandas
+scikit-learn

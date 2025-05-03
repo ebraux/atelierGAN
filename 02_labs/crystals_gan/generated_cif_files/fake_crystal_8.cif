@@ -1,0 +1,36 @@
+# generated using pymatgen
+data_Rb2ScTiFeNiPdRhBrKr
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   6.09141489
+_cell_length_b   8.47361897
+_cell_length_c   12.10419178
+_cell_angle_alpha   89.53283122
+_cell_angle_beta   88.38460800
+_cell_angle_gamma   78.53968162
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Rb2ScTiFeNiPdRhBrKr
+_chemical_formula_sum   'Rb2 Sc1 Ti1 Fe1 Ni1 Pd1 Rh1 Br1 Kr1'
+_cell_volume   612.07211492
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Pd  Pd0  1  0.09275989  0.81776631  0.77048557  1
+  Rh  Rh1  1  0.30854595  0.12706536  0.34586468  1
+  Kr  Kr2  1  0.28493136  0.36717865  0.44899917  1
+  Rb  Rb3  1  0.42914957  0.80567183  0.58837408  1
+  Br  Br4  1  0.00913537  0.64768016  0.55322361  1
+  Rb  Rb5  1  0.99267554  0.43470970  0.08493711  1
+  Ni  Ni6  1  0.03161542  0.78368047  0.51984978  1
+  Fe  Fe7  1  0.99866819  0.65830493  0.61222208  1
+  Ti  Ti8  1  0.14119662  0.07765388  0.89337063  1
+  Sc  Sc9  1  0.50110972  0.19817412  0.21799509  1

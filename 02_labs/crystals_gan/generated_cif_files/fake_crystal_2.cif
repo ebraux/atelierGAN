@@ -1,0 +1,36 @@
+# generated using pymatgen
+data_ZrMnNbCrCuTcGeTeMoI
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   7.12753259
+_cell_length_b   9.68212980
+_cell_length_c   13.88786983
+_cell_angle_alpha   102.27154330
+_cell_angle_beta   100.92621442
+_cell_angle_gamma   89.76193779
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   ZrMnNbCrCuTcGeTeMoI
+_chemical_formula_sum   'Zr1 Mn1 Nb1 Cr1 Tc1 Cu1 Ge1 Te1 Mo1 I1'
+_cell_volume   918.87043686
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  I  I0  1  0.22309563  0.76637501  0.86766490  1
+  Te  Te1  1  0.40364358  0.24074945  0.22134000  1
+  Nb  Nb2  1  0.48858637  0.55833232  0.46313298  1
+  Tc  Tc3  1  0.60881203  0.88029926  0.62920088  1
+  Zr  Zr4  1  0.92281753  0.69290394  0.83623600  1
+  Mo  Mo5  1  0.04203738  0.57301086  0.18623048  1
+  Ge  Ge6  1  0.99076650  0.77016363  0.51626909  1
+  Cu  Cu7  1  0.15217698  0.81077725  0.63042486  1
+  Mn  Mn8  1  0.17787392  0.12894833  0.01281846  1
+  Cr  Cr9  1  0.38988352  0.22992194  0.28458011  1

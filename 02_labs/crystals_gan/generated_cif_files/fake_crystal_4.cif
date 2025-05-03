@@ -1,0 +1,36 @@
+# generated using pymatgen
+data_YZrMnNbVGaCuSbTeMo
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   6.94859916
+_cell_length_b   9.34300439
+_cell_length_c   13.61759377
+_cell_angle_alpha   100.45082066
+_cell_angle_beta   98.94367121
+_cell_angle_gamma   88.10858792
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   YZrMnNbVGaCuSbTeMo
+_chemical_formula_sum   'Y1 Zr1 Mn1 Nb1 V1 Ga1 Cu1 Sb1 Te1 Mo1'
+_cell_volume   858.81823279
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Te  Te0  1  0.26768541  0.93181926  0.59178665  1
+  Sb  Sb1  1  0.26811805  0.23395985  0.37768799  1
+  Zr  Zr2  1  0.47455883  0.54537594  0.55242896  1
+  Mo  Mo3  1  0.71191359  0.93702862  0.74963576  1
+  Y  Y4  1  0.97388250  0.68565863  0.79158878  1
+  Nb  Nb5  1  0.04168051  0.54715145  0.10826889  1
+  Ga  Ga6  1  0.17003593  0.86125976  0.52099496  1
+  Cu  Cu7  1  0.99002075  0.81314504  0.60371822  1
+  Mn  Mn8  1  0.21780077  0.14873171  0.86309963  1
+  V  V9  1  0.52698207  0.13835692  0.35431421  1

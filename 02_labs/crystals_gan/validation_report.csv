@@ -1,0 +1,11 @@
+filename,volume,num_atoms,invalid_atoms,valid
+fake_crystal_0.cif,579.6951294228269,10,0,True
+fake_crystal_1.cif,924.2594244188001,10,0,True
+fake_crystal_2.cif,918.8704359241322,10,0,True
+fake_crystal_3.cif,907.6130479360977,10,0,True
+fake_crystal_4.cif,858.8182330380533,10,0,True
+fake_crystal_5.cif,886.5136217375907,10,0,True
+fake_crystal_6.cif,473.044635744707,10,0,True
+fake_crystal_7.cif,1010.6568525809301,10,0,True
+fake_crystal_8.cif,612.0721152772007,10,0,True
+fake_crystal_9.cif,173.77743333871373,10,0,True

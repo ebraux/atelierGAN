@@ -1,0 +1,36 @@
+# generated using pymatgen
+data_RbCaTiMnNiRh2Br2Kr
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   6.00537565
+_cell_length_b   8.33884952
+_cell_length_c   11.88174248
+_cell_angle_alpha   88.01514273
+_cell_angle_beta   86.94174447
+_cell_angle_gamma   77.40020285
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   RbCaTiMnNiRh2Br2Kr
+_chemical_formula_sum   'Rb1 Ca1 Ti1 Mn1 Ni1 Rh2 Br2 Kr1'
+_cell_volume   579.69512970
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Rh  Rh0  1  0.07718177  0.63514286  0.75014739  1
+  Rh  Rh1  1  0.39746264  0.13828066  0.15103760  1
+  Br  Br2  1  0.38090643  0.46911255  0.53462952  1
+  Rb  Rb3  1  0.57512140  0.78577118  0.67583305  1
+  Br  Br4  1  0.84320104  0.54672140  0.53271592  1
+  Kr  Kr5  1  0.02955134  0.58983934  0.13345625  1
+  Ni  Ni6  1  0.04871539  0.85328543  0.53141832  1
+  Mn  Mn7  1  0.97376007  0.64371181  0.63579077  1
+  Ti  Ti8  1  0.18820734  0.08124936  0.85971445  1
+  Ca  Ca9  1  0.35043269  0.12129164  0.37238953  1

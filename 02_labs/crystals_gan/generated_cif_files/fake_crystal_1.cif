@@ -1,0 +1,36 @@
+# generated using pymatgen
+data_SrPmSmCdInCoCuAgSnSe
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   8.18273453
+_cell_length_b   11.34580329
+_cell_length_c   16.36707306
+_cell_angle_alpha   119.03604558
+_cell_angle_beta   117.68505974
+_cell_angle_gamma   104.68408864
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   SrPmSmCdInCoCuAgSnSe
+_chemical_formula_sum   'Sr1 Pm1 Sm1 Cd1 In1 Co1 Cu1 Ag1 Sn1 Se1'
+_cell_volume   924.25942370
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Sm  Sm0  1  0.34243533  0.03271115  0.87349781  1
+  Pm  Pm1  1  0.36656031  0.31947333  0.47748441  1
+  Cd  Cd2  1  0.66183972  0.67973107  0.62265784  1
+  Sn  Sn3  1  0.44869125  0.03258453  0.82239717  1
+  Ag  Ag4  1  0.12751663  0.81710607  0.21370697  1
+  In  In5  1  0.92026167  0.47747958  0.06817825  1
+  Sr  Sr6  1  0.14664969  0.78101560  0.61091983  1
+  Se  Se7  1  0.35027564  0.89524627  0.58832091  1
+  Cu  Cu8  1  0.31862786  0.14616394  0.15828788  1
+  Co  Co9  1  0.63821298  0.46215796  0.39282528  1
