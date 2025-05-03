@@ -1,0 +1,3 @@
+.venv/
+__pycache__/
+app/stylegan3-r-ffhqu-256x256.pkl
