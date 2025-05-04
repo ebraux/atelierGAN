@@ -3,7 +3,7 @@ name: Run tests API-GAN
 on:
   push:
     branches:
-      - final
+      - '**'
 
 jobs:
   test:
