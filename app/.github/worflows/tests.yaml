@@ -2,7 +2,8 @@ name: Run tests
 
 on:
   push:
-    - final
+    branches:
+      - final
 
 jobs:
   test:
