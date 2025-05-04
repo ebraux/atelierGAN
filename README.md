@@ -112,9 +112,9 @@ git push -u origin nom-de-ta-branche
 git push -u origin feature-login
 ```
 
-- * `origin` → c’est le nom par défaut du dépôt distant.
-- * `nom-de-ta-branche` → remplace par le nom réel de ta branche.
-- * `-u` → ça crée un lien entre ta branche locale et la branche distante (pratique, car après tu pourras juste faire `git push` sans préciser le reste).
+- `origin` → c’est le nom par défaut du dépôt distant.
+- `nom-de-ta-branche` → remplace par le nom réel de ta branche.
+- `-u` → ça crée un lien entre ta branche locale et la branche distante (pratique, car après tu pourras juste faire `git push` sans préciser le reste).
 
 **Après le premier push :**
 Tu pourras simplement faire :
