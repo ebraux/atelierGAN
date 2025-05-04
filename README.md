@@ -1,5 +1,7 @@
 # Atelier GAN - Génération de visages
 
+Les tests unitaires sont devenus essentiels dans le développement logiciel moderne pour garantir la qualité, la stabilité et l’évolutivité des projets. Ce tutoriel présente, étape par étape, comment mettre en place et exécuter des tests unitaires sur une API FastAPI à l’aide de `pytest`, en expliquant les concepts clés, les bonnes pratiques et en proposant un exercice pratique pour s’entraîner.
+
 ## 1. Explication et utilité des tests unitaires
 
 Les **tests unitaires** sont des scripts permettant de vérifier automatiquement que chaque partie (ou “unité”) du code fonctionne comme prévu.
