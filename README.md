@@ -101,14 +101,31 @@ git remote add origin https://github.com/ton-utilisateur/ton-repo.git
 
 ## Envoyer le code
 
+Pour **pousser (push) une branche vers un remote** (par exemple sur GitHub), voici la commande :
+
 ```bash
-git push -u origin nouvelle-branche
+git push -u origin nom-de-ta-branche
 ```
 
-Pour les prochains push :
+✅ Exemple :
+```bash
+git push -u origin feature-login
+```
+
+- * `origin` → c’est le nom par défaut du dépôt distant.
+- * `nom-de-ta-branche` → remplace par le nom réel de ta branche.
+- * `-u` → ça crée un lien entre ta branche locale et la branche distante (pratique, car après tu pourras juste faire `git push` sans préciser le reste).
+
+**Après le premier push :**
+Tu pourras simplement faire :
 
 ```bash
 git push
 ```
 
+Si la branche existe déjà sur le remote, tu peux aussi utiliser :
+
+```bash
+git push origin nom-de-ta-branche
+```
 ---
