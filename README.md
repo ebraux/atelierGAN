@@ -1,3 +1,5 @@
+# Atelier GAN - Génération de visages
+
 ## 1. Explication et utilité des tests unitaires
 
 Les **tests unitaires** sont des scripts permettant de vérifier automatiquement que chaque partie (ou “unité”) du code fonctionne comme prévu.
