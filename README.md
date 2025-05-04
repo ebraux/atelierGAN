@@ -1,131 +1,112 @@
-## 1. Explication et utilité des tests unitaires
 
-Les **tests unitaires** sont des scripts permettant de vérifier automatiquement que chaque partie (ou “unité”) du code fonctionne comme prévu.
+## Qu’est-ce que Git ?
 
-Ils ont pour principaux objectifs :
-✅ détecter rapidement les bugs ;
-✅ garantir que les évolutions futures n’introduisent pas de régressions ;
-✅ documenter le comportement attendu du code.
+Git est un système de gestion de versions.
+Il permet de **suivre l’historique des fichiers**, **travailler à plusieurs** sur un même projet et **revenir en arrière** en cas d’erreur.
 
 ---
 
-## 2. Mise en place des tests
+## Comment installer Git
 
-1. **Installation des dépendances :**
+✅ **Sur Linux (Debian/Ubuntu) :**
 
-   Deux approches sont possibles :
-
-   ➤ **Option 1 – Installation manuelle**
-   Installer `pytest` :
-
-   ```bash
-   pip install pytest
-   pip freeze > requirements.txt
-   ```
-
-   ➤ **Option 2 – Utilisation du fichier `requirements.txt` présent dans le dépôt GitHub**
-   Exécuter la commande suivante :
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-   Cette commande installera toutes les dépendances listées, y compris `pytest`.
-
-2. **Organisation des fichiers :**
-
-   Le fichier `test_api.py` doit être placé dans le répertoire /app, dans un sous-dossier `tests/`.
-   Il est nécessaire de s’assurer que le fichier `main.py` (contenant l’API) soit accessible.
-
-   Exemple d’arborescence :
-
-   ```
-   /app
-   ├── main.py
-   ├── test_api.py
-   ```
-
----
-
-## 3. Explication sur les `assert`
-
-Les **assertions** (`assert`) sont des vérifications qui permettent de confirmer qu’une condition est vraie.
-En cas d’échec, le test est signalé comme échoué.
-
-Exemples présents dans le fichier `test_api.py` :
-
-* `assert response.status_code == 200` → vérifie que le serveur répond avec un code 200 (OK).
-* `assert "API Génération" in response.text` → vérifie que le texte attendu est bien présent dans la réponse.
-* `assert len(response.content) > 1000` → vérifie que l’image générée n’est pas vide.
-
----
-
-## 4. Code complet pour le test `test_generate_image()`
-
-Voici le code complet permettant de tester la génération d’image (à inclure dans le fichier `test_api.py`) :
-
-```python
-import sys
-import os
-from fastapi.testclient import TestClient
-from main import app
-
-sys.path.append(os.path.dirname(os.path.abspath(__file__)) + "/..")
-client = TestClient(app)
-
-def test_generate_image():
-    response = client.get("/generate_image")
-    assert response.status_code == 200
-    assert response.headers["content-type"] == "image/jpeg"
-    assert len(response.content) > 1000  # Vérifie que l'image n'est pas vide
+```bash
+sudo apt update
+sudo apt install git
 ```
 
-Ce test :
+✅ **Sur Windows :**
 
-* appelle la route `/generate_image`,
-* vérifie que la réponse est correcte et contient une image JPEG,
-* s’assure que l’image n’est pas vide.
-
----
-
-## 5. Exécution du code et vérification des résultats
-
-1. Depuis un terminal, se placer à la racine du projet :
-
-   ```bash
-   cd /<chemin_projet>/app
-   ```
-
-2. Exécuter les tests avec pytest :
-
-   ```bash
-   pytest
-   ```
-
-3. Vérifier les résultats affichés :
-   Un exemple de sortie attendue :
-
-   ```
-   ================= test session starts ==================
-   collected 2 items
-
-   test_api.py ..                                      [100%]
-
-   ================== 2 passed in X.XXs ==================
-   ```
-
-   Cela indique que les deux tests (`test_index` et `test_generate_image`) ont réussi.
+1. Va sur [https://git-scm.com](https://git-scm.com)
+2. Clique sur **Download** (le site détectera ton OS)
+3. Lance l’installeur et laisse les options par défaut (ça suffit pour commencer)
 
 ---
 
-## 6. Exercice : ajouter et exécuter le test `test_index()`
+## Initialiser un dépôt Git
 
-Pour compléter l’exercice :
+Dans le dossier de ton projet :
 
-1. Ajouter le test `test_index()` dans le fichier `test_api.py`.
-2. Vérifier que ce test :
+```bash
+git init
+```
 
-   * appelle la route `/`,
-   * vérifie que le code retourné est 200,
-   * vérifie que le texte `"API Génération"` est présent dans la réponse grâce à l'attribut `response.text`.
-3. Exécuter à nouveau `pytest` et s’assurer que tous les tests passent.
+Cela crée un dossier `.git` qui stocke l’historique et les métadonnées.
+
+---
+
+## Écrire un `.gitignore`
+
+Crée un fichier nommé `.gitignore` dans ton projet.
+Dedans, liste les fichiers/dossiers à ignorer, par exemple :
+
+```
+node_modules/
+.env
+*.log
+```
+
+---
+
+## Créer une branche
+
+```bash
+git checkout -b nouvelle-branche
+```
+
+Exemple :
+
+```bash
+git checkout -b feature-login
+```
+
+---
+
+## Ajouter et commiter le code
+
+1. **Ajouter les fichiers modifiés au suivi :**
+
+```bash
+git add .
+```
+
+2. **Créer un commit avec un message :**
+
+```bash
+git commit -m "Ajout de la fonctionnalité login"
+```
+
+---
+
+## Qu’est-ce que GitHub ?
+
+GitHub est une plateforme en ligne pour héberger tes dépôts Git.
+Il permet de **partager ton code**, **collaborer à plusieurs** et **gérer les issues/pull requests**.
+
+---
+
+## Relier un dépôt distant sur GitHub
+
+1. Crée un dépôt sur GitHub (via le site) sans cocher “Initialize with README”.
+
+2. Dans ton terminal :
+
+```bash
+git remote add origin https://github.com/ton-utilisateur/ton-repo.git
+```
+
+---
+
+## Envoyer le code
+
+```bash
+git push -u origin nouvelle-branche
+```
+
+Pour les prochains push :
+
+```bash
+git push
+```
+
+---
