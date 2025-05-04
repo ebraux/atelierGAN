@@ -1,178 +1,165 @@
-# Atelier GAN - Web API
+# Atelier GAN - Web scraping
 
-Déployer un modèle d'intelligence artificielle via une **API** permet de le rendre **accessible, scalable et facilement intégrable** dans divers systèmes, sans nécessiter de redéploiement à chaque utilisation.
+Le **web scraping** est une technique qui permet d’extraire automatiquement des informations à partir de pages web.
+Il est utilisé, par exemple, pour :
 
-### Principaux avantages
+* récupérer des prix ou des avis sur des sites e-commerce,
+* collecter des articles ou données scientifiques,
+* constituer des jeux de données pour l’entraînement en machine learning (images, textes),
+* surveiller l’évolution de contenus en ligne (météo, sport, bourse…).
 
-* **Accessibilité** → Toute application (web, mobile, backend) peut envoyer des requêtes et obtenir des prédictions en temps réel.
-* **Scalabilité** → L’API permet d’héberger le modèle sur un serveur centralisé et de gérer plusieurs requêtes simultanément.
-* **Mise à jour simplifiée** → Il est possible d’améliorer ou de remplacer le modèle sans impacter les utilisateurs finaux.
-* **Interopérabilité** → Le modèle peut être exploité par des applications écrites dans différents langages (Python, JavaScript, Java…).
-* **Sécurité** → L'API permet de contrôler les accès au modèle et de protéger les données sensibles.
-
----
-
-## FastAPI
-
-[FastAPI](https://fastapi.tiangolo.com/) est un **framework Python rapide et performant** pour créer des **API RESTful**. Il est particulièrement adapté à l’exposition de modèles d’IA, car il permet :
-
-* de gérer facilement les requêtes HTTP,
-* d’assurer une **exécution asynchrone optimisée**,
-* d’intégrer automatiquement une **documentation interactive** via `/docs`.
-
-![FastAPI](ressources/fastapi-logo.png)
-
-### Endpoint dans FastAPI
-
-Un **endpoint** est une route définie dans FastAPI qui répond à une requête HTTP (`GET`, `POST`…).
-Il permet d’exécuter une fonction spécifique, comme **recevoir une image et retourner une prédiction** d’un modèle d’IA.
-
-### Uvicorn
-
-[Uvicorn](https://www.uvicorn.org/) est un **serveur ASGI** (Asynchronous Server Gateway Interface) qui exécute les applications **FastAPI** de manière **très rapide** et **asynchrone**.
-Il est essentiel pour **mettre l’API en production** et gérer efficacement les requêtes entrantes.
+⚠️ Attention : le scraping doit toujours être fait **dans le respect des conditions d’utilisation du site et de la loi**.
 
 ---
 
-## Mise en place de l'API
+## 1. Accès à la page web avec `requests`
 
-- Commencez par créer un nouveau répertoire de travail. 
-- Téléchargez les fichiers de cette branche.
-- Placer les sources dans votre répertoire de travail en respectant la structure proposée.
+La première étape consiste à télécharger le code HTML de la page. On utilise pour cela la bibliothèque **requests**.
 
-### Installation de l’environnement
-
-Sur la machine de travail, commencez par **créer et activer un environnement virtuel** dans le répertoire de projet :
-
-```bash
-python -m venv venv
-source venv/bin/activate  # Sur macOS/Linux
-venv\Scripts\activate  # Sur Windows
-```
-
-### Installation des dépendances
-
-Installez les bibliothèques nécessaires à l'API :
-
-```bash
-pip install --upgrade -r requirements.txt
-```
-
----
-
-## Développement de la Web API
-
-### Présentation de l’architecture
-
-L’architecture repose sur un répertoire `app` contenant l’ensemble du code.
-
-* Le dépôt de référence est, comme pour le notebook, [ce dépôt GitHub](https://github.com/NVlabs/stylegan3), à partir duquel a été réalisée une simplification.
-
-* Les fichiers clés sont :
-
-  * `gen_image.py` → sert uniquement pour tester le modèle hors API.
-  * `legacy.py`, le répertoire `/dnnlib` et `/torch_utils` → indispensables pour faire fonctionner le modèle GAN comme dans les exemples des notebooks fournis.
-
-Tout le code API est centralisé dans le fichier `main.py` situé dans le dossier `app`.
-
----
-
-### **Fichier `main.py`**
-
-Ce fichier contient une première API qui sert simplement une image enregistrée localement :
+### Code exemple
 
 ```python
-import torch
-import legacy
-from PIL import Image
-import io
-from fastapi import FastAPI, Response
-import os
-from datetime import datetime
+import requests
 
-# Répertoire d’images existantes
-IMAGE_DIR = "../images"
-os.makedirs(IMAGE_DIR, exist_ok=True)
+url = 'https://generated.photos/faces'
+response = requests.get(url)
 
-# Initialise l’application FastAPI
-app = FastAPI()
-
-# Fonction pour sélectionner une image existante et retourner ses octets
-def generate_stylegan_image(G=None) -> bytes:
-    # Chemin vers une image de test
-    filename = "jim.jpg"
-    filepath = os.path.join(IMAGE_DIR, filename)
-
-    # Charge l’image
-    pil_img = Image.open(filepath)
-
-    # Convertit l’image en bytes pour la réponse API
-    buffer = io.BytesIO()
-    pil_img.save(buffer, format='JPEG')
-    return buffer.getvalue()
-
-@app.get("/")
-async def index():
-    return "API Génération d'image (sans GAN pour le moment) !"
-
-@app.get("/generate_image")
-async def generate_image():
-    """
-    Retourne une image existante du dossier /images au format JPEG.
-    """
-    image_data = generate_stylegan_image()
-    return Response(content=image_data, media_type="image/jpeg")
+if response.status_code == 200:
+    print("Succès ! Contenu de la page récupéré.")
+    print(response.text[:500])  # Affiche les 500 premiers caractères
+else:
+    print(f"Erreur : statut {response.status_code}")
 ```
+
+### Explication
+
+* `requests.get(url)` → envoie une requête au serveur web.
+* `response.status_code` → vérifie que le code est `200` (succès).
+* `response.text` → contient le code HTML de la page.
 
 ---
 
-### **Tester l'API**
+## 2. BeautifulSoup : installation et documentation
 
-**Lancer le serveur :**
+**BeautifulSoup** est une bibliothèque qui permet de lire et d’extraire facilement des éléments HTML.
+
+### Installation
 
 ```bash
-uvicorn app.main:app --reload --host 0.0.0.0 --port 8081
+pip install beautifulsoup4
 ```
 
-**Tester l’API dans le navigateur :**
-Accéder à la documentation interactive :
-`http://127.0.0.1:8081/docs`
+👉 Si besoin, installe aussi requests :
 
-![api docs](ressources/api_docs.png)
+```bash
+pip install requests
+```
 
----
+### Documentation officielle
 
-## Ajout du GAN dans l'API
-
-Maintenant que la structure de l'API est en place, il s’agit d’y intégrer le modèle GAN pour générer un nouveau visage à chaque appel.
-
-### Ajout du modèle GAN
-
-Le modèle **`stylegan3-r-ffhqu-256x256.pkl`** est recommandé car il n’est pas trop volumineux et peut tourner sur un CPU local.
-
-Téléchargement disponible ici :
-[stylegan3 de NVidia](https://catalog.ngc.nvidia.com/orgs/nvidia/teams/research/models/stylegan3/files)
-
-Il est conseillé de placer ce fichier dans le répertoire `/app` du projet.
+[https://www.crummy.com/software/BeautifulSoup/bs4/doc/](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
 
 ---
 
-### Configuration et chargement du modèle
+## 3. Comprendre le scraping par balise HTML
 
-Modifiez le code pour intégrer le modèle GAN (`StyleGAN3`) dans l’API. Il faut :
+Pour extraire des images, des titres, des liens, il faut :
 
-* utiliser les modules du dépôt `stylegan3`,
-* écrire une fonction qui charge le modèle à partir du fichier `.pkl`,
-* récrire la fonction generate_stylegan_image() pour prendre en paramètre un modèle et retourner une image,
-* modifier le endpoint `/generate_image` pour appeler ce modèle et générer une nouvelle image à chaque requête.
+1. **Examiner le HTML de la page**
+
+   * Sur Chrome / Firefox → clic droit → *Inspecter* → repérer les balises `<img>`, `<a>`, `<div>`, etc.
+2. **Identifier les sélecteurs**
+
+   * Exemple pour `https://generated.photos/faces` :
+
+     ```html
+     <a href="/face/...">
+       <img src="https://images.generated.photos/..." alt="...">
+     </a>
+     ```
+
+   → On va cibler les `<img>` contenus dans les `<a>`.
 
 ---
 
-### **Tester l'API**
+## 4. Code exemple complet + explications
 
-Relancer le serveur et ouvrir le navigateur comme précédemment.
+```python
+import requests
+from bs4 import BeautifulSoup
+import os
+from urllib.parse import urljoin
+import time
 
-Il est désormais possible de générer des visages réalistes directement depuis le navigateur web.
+# URL à scraper
+URL = 'https://generated.photos/faces'
 
-![api docs](ressources/gan_docs.png)
+# Dossier pour enregistrer les images
+IMAGE_DIR = './generated_faces'
+os.makedirs(IMAGE_DIR, exist_ok=True)
 
+# Headers pour simuler un vrai navigateur
+HEADERS = {'User-Agent': 'Mozilla/5.0'}
+
+def download_image(img_url, filename):
+    response = requests.get(img_url, headers=HEADERS)
+    if response.status_code == 200:
+        with open(filename, 'wb') as f:
+            f.write(response.content)
+        print(f"Image enregistrée : {filename}")
+    else:
+        print(f"Erreur pour {img_url}")
+
+def scrape_faces(url, max_images=5):
+    response = requests.get(url, headers=HEADERS)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    
+    img_tags = soup.select('a img')
+    count = 0
+    
+    for img in img_tags:
+        img_url = img.get('src')
+        if img_url:
+            full_url = urljoin(url, img_url)
+            filename = os.path.join(IMAGE_DIR, f'face_{count + 1}.jpg')
+            download_image(full_url, filename)
+            count += 1
+            if count >= max_images:
+                break
+            time.sleep(1)  # Pause pour respecter le serveur
+
+scrape_faces(URL, max_images=5)
+```
+
+### Explications
+
+* **`BeautifulSoup(response.text, 'html.parser')`** → crée un objet analysable.
+* **`soup.select('a img')`** → sélectionne les balises `<img>` contenues dans des `<a>`.
+* **`img.get('src')`** → récupère l’URL de l’image.
+* **`urljoin(url, img_url)`** → reconstruit une URL complète même si elle est relative.
+* **`download_image()`** → télécharge et sauvegarde l’image.
+
+---
+
+## 5. Bonnes pratiques du scraping
+
+* Consulte toujours le fichier `robots.txt` du site pour vérifier ce qui est autorisé.
+* Respecte les conditions d’utilisation du site.
+* Ajoute un **User-Agent** pour simuler un vrai navigateur.
+* Ne surcharge pas les serveurs → utilise `time.sleep()` entre les requêtes.
+* Limite le nombre de pages/images téléchargées.
+* Garde une trace des URLs et des erreurs rencontrées.
+
+---
+
+## 6. Limites de BeautifulSoup
+
+* BeautifulSoup ne voit que **le HTML initial**.
+  Si le contenu est chargé **par JavaScript** (comme souvent sur les sites modernes), il ne sera pas accessible.
+* Pour ces cas, il faut utiliser :
+
+  * **Selenium** → simule un navigateur réel.
+  * **Playwright** → plus moderne et rapide.
+* BeautifulSoup ne remplace pas un vrai moteur de rendu et ne gère pas les interactions dynamiques.
+
+---

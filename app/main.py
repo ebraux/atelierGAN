@@ -16,7 +16,7 @@ app = FastAPI()
 # Fonction pour sélectionner une image existante et retourner ses octets
 def generate_stylegan_image(G=None) -> bytes:
     # Chemin vers une image de test
-    filename = "jim.jpg"
+    filename = "face_1.jpg"
     filepath = os.path.join(IMAGE_DIR, filename)
 
     # Charge l’image
