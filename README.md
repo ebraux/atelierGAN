@@ -129,3 +129,9 @@ Pour compléter l’exercice :
    * vérifie que le code retourné est 200,
    * vérifie que le texte `"API Génération"` est présent dans la réponse grâce à l'attribut `response.text`.
 3. Exécuter à nouveau `pytest` et s’assurer que tous les tests passent.
+
+---
+
+## Pour aller plus loin
+
+Pour approfondir l’utilisation de `pytest` et découvrir l’ensemble de ses fonctionnalités (paramétrage avancé, fixtures, tests paramétrés, intégration continue, plugins, etc.), il est recommandé de consulter le site officiel : [https://pytest.org](https://pytest.org). Ce site propose une documentation complète, des exemples pratiques, ainsi que des guides pour améliorer et structurer les tests au sein des projets Python. La documentation détaillée est également accessible directement à l’adresse : [https://docs.pytest.org](https://docs.pytest.org).
