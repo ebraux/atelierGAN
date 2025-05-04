@@ -1,3 +1,4 @@
+# Atelier GAN - Génération de visages
 
 ## Qu’est-ce que Git ?
 
