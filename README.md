@@ -1,112 +1,153 @@
 
-## Qu’est-ce que Git ?
+# Atelier GAN - Docker
 
-Git est un système de gestion de versions.
-Il permet de **suivre l’historique des fichiers**, **travailler à plusieurs** sur un même projet et **revenir en arrière** en cas d’erreur.
+Pour l’installation de Docker, consultez le site officiel : [https://www.docker.com/](https://www.docker.com/)  
+
+Docker est une **technologie de conteneurisation** qui permet d’exécuter des applications de manière **isolée, portable et reproductible**. Il facilite le déploiement en encapsulant **le code, les dépendances et la configuration** dans des **conteneurs**.
+
+![logo docker](ressources/logo_docker.webp)
+---
+
+### Qu'est-ce qu'un conteneur Docker ?  
+Un **conteneur** est une **unité logicielle légère et isolée** qui contient tout le nécessaire pour exécuter une application (**code, librairies, dépendances, configuration**).  
+Il fonctionne indépendamment du **système d’exploitation sous-jacent**, ce qui permet une exécution homogène sur **différentes machines**.
 
 ---
 
-## Comment installer Git
+### Qu'est-ce qu'une image Docker ? 
+Une **image Docker** est un **modèle préconfiguré** qui contient le **code de l’application, son environnement et ses dépendances**.  
 
-✅ **Sur Linux (Debian/Ubuntu) :**
-
-```bash
-sudo apt update
-sudo apt install git
-```
-
-✅ **Sur Windows :**
-
-1. Va sur [https://git-scm.com](https://git-scm.com)
-2. Clique sur **Download** (le site détectera ton OS)
-3. Lance l’installeur et laisse les options par défaut (ça suffit pour commencer)
+Vous pouvez trouver de nombreuses **images prêtes à l'emploi** sur **[Docker Hub](https://hub.docker.com/)**.
 
 ---
 
-## Initialiser un dépôt Git
+### **Qu'est-ce que Docker Compose ?**  
+[Docker Compose](https://docs.docker.com/compose/) est un outil qui permet de **gérer plusieurs conteneurs** avec un seul fichier **`docker-compose.yml`**.  
+Il est **idéal pour les architectures complexes** (ex: **API FastAPI + Base de données**).
 
-Dans le dossier de ton projet :
+**Exemple : Définir un service API FastAPI avec MySQL dans `docker-compose.yml`**  
+```yaml
+version: '3.9'
 
+services:
+  web:
+    image: my-fastapi-app
+    ports:
+      - "8080:80"
+  db:
+    image: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=example
+```
+### **Lancer tous les conteneurs en une seule commande**  
 ```bash
-git init
-```
-
-Cela crée un dossier `.git` qui stocke l’historique et les métadonnées.
-
----
-
-## Écrire un `.gitignore`
-
-Crée un fichier nommé `.gitignore` dans ton projet.
-Dedans, liste les fichiers/dossiers à ignorer, par exemple :
-
-```
-node_modules/
-.env
-*.log
-```
-
----
-
-## Créer une branche
-
-```bash
-git checkout -b nouvelle-branche
-```
-
-Exemple :
-
-```bash
-git checkout -b feature-login
+docker-compose up -d
 ```
 
 ---
 
-## Ajouter et commiter le code
-
-1. **Ajouter les fichiers modifiés au suivi :**
-
-```bash
-git add .
-```
-
-2. **Créer un commit avec un message :**
-
-```bash
-git commit -m "Ajout de la fonctionnalité login"
-```
+### **Résumé**
+| **Concept** | **Définition** |
+|------------|--------------|
+| **Docker** | Plateforme permettant de conteneuriser des applications. |
+| **Conteneur** | Instance d’une image Docker qui exécute une application de manière isolée. |
+| **Image Docker** | Modèle qui contient l’application et ses dépendances. |
+| **Docker Compose** | Outil pour orchestrer plusieurs conteneurs avec un fichier `docker-compose.yml`. |
 
 ---
 
-## Qu’est-ce que GitHub ?
+## **Conteneurisation de notre API GAN**
+Nous allons **conteneuriser l’API GAN** avec **Docker**.
 
-GitHub est une plateforme en ligne pour héberger tes dépôts Git.
-Il permet de **partager ton code**, **collaborer à plusieurs** et **gérer les issues/pull requests**.
-
----
-
-## Relier un dépôt distant sur GitHub
-
-1. Crée un dépôt sur GitHub (via le site) sans cocher “Initialize with README”.
-
-2. Dans ton terminal :
-
+### **Générer les dépendances**
+Avant de créer l’image, assurez-vous que toutes les **dépendances Python** sont bien listées :
 ```bash
-git remote add origin https://github.com/ton-utilisateur/ton-repo.git
+pip freeze > requirements.txt
+```
+Ce fichier **requirements.txt** sera utilisé pour **installer les bibliothèques** dans le conteneur.
+
+## **Création du `Dockerfile`**
+L’image utilisée pour le conteneur sera créée à partir d’une **image Python** en utilisant le fichier `Dockerfile` suivant :
+
+```dockerfile
+FROM python:3.11
+
+WORKDIR /code
+COPY ./requirements.txt /code/requirements.txt
+RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
+COPY ./app /code/app
+```
+- **Le `RUN` installe `pip` avec le `requirements.txt`**  
+- **Le `COPY` ajoute le code source dans l’image (`app → /code/app`)**
+
+### **Création du fichier `.dockerignore`**
+Le fichier `.dockerignore` permet **d’exclure certains fichiers** du contexte de construction.  
+
+Ajoutez les **éléments à ignorer**, notamment :  
+```
+.venv/
+.pytest_cache/
+__pycache__/
+```
+**Cela évite d’intégrer des fichiers inutiles dans l’image Docker.**
+
+### **Création du `docker-compose.yml`**
+Nous allons utiliser **Docker Compose** pour **orchestrer notre conteneur**.
+
+```yaml
+version: "3.9"
+
+services:
+  web:
+    build:
+      context: .  # Chemin vers le répertoire contenant le Dockerfile
+      dockerfile: Dockerfile  # Facultatif si le fichier s'appelle Dockerfile
+    container_name: api_gan
+    ports:
+      - "8081:80"  # Redirige le port 8000 de l'hôte vers le port 80 du conteneur
+    volumes:
+      - ./app:/code/app  # Montage pour recharger automatiquement le code (optionnel)
+      - ./requirements.txt:/code/requirements.txt  # Montage pour recharger automatiquement les dépendances (optionnel)
+      - ./images:/code/images
+    environment:
+      - PYTHONUNBUFFERED=1  # Assure que les logs apparaissent immédiatement dans la console
+    working_dir: /code/app   # 👈 change de répertoire
+    command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"]
 ```
 
----
+**Explication du `docker-compose.yml`**
+- `version: "3.9"` : Indique la version de Docker Compose.
+- `services:` : Déclare un service `web` pour l’API.
+- `build:` : Spécifie que l’image sera construite avec `Dockerfile` en local.
+- `container_name: api_gan` : Définit un nom personnalisé pour le conteneur.
+- `ports: "8081:80"` : Redirige le port `8081` de l'hôte vers le port `80` du conteneur.
+- `volumes:` : Permet d’utiliser les fichiers du système hôte dans le conteneur.
+- `environment:` : Ajoute des variables d’environnement, ici `PYTHONUNBUFFERED=1` pour des logs immédiats.
+- `command:` : Démarre **FastAPI** avec `uvicorn`.
 
-## Envoyer le code
-
+### **Construire et démarrer les conteneurs**
 ```bash
-git push -u origin nouvelle-branche
+docker-compose up -d --build
 ```
 
-Pour les prochains push :
+**Explication :**
+- `up -d` → Démarre le conteneur en arrière-plan.
+- `--build` → Reconstruit l’image si des modifications ont été apportées.
 
+### **Vérifier que le conteneur tourne**
 ```bash
-git push
+docker ps
+```
+Cette commande affiche la liste des conteneurs en cours d’exécution.
+
+### **Tester l’API dans le navigateur**
+Accédez à la **documentation interactive Swagger** :
+```
+http://localhost:8081/docs
 ```
 
----
+### **Arrêter et supprimer les conteneurs**
+```bash
+docker-compose down
+```
+Cette commande arrête et supprime les conteneurs créés avec Docker Compose.
