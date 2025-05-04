@@ -42,9 +42,10 @@ Crée un fichier nommé `.gitignore` dans ton projet.
 Dedans, liste les fichiers/dossiers à ignorer, par exemple :
 
 ```
-node_modules/
-.env
-*.log
+.venv/
+.pytest_cache/
+__pycache__/
+app/stylegan3-r-ffhqu-256x256.pkl
 ```
 
 ---
