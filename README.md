@@ -3,9 +3,9 @@
 Les **tests unitaires** sont des scripts permettant de vérifier automatiquement que chaque partie (ou “unité”) du code fonctionne comme prévu.
 
 Ils ont pour principaux objectifs :
-✅ détecter rapidement les bugs ;
-✅ garantir que les évolutions futures n’introduisent pas de régressions ;
-✅ documenter le comportement attendu du code.
+- ✅ détecter rapidement les bugs ;
+- ✅ garantir que les évolutions futures n’introduisent pas de régressions ;
+- ✅ documenter le comportement attendu du code.
 
 ---
 
