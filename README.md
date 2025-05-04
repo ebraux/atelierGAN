@@ -11,7 +11,7 @@ Nous mettrons en pratique ce principe en **entraînant un GAN à générer des v
 **📅 Durée : 2 jours** 
 
 ## **Intervenants :**  
-- **Kheireddin Kadri** - Chercheur R&D Aptiskills, intervenant école Léonard de Vinci  
+- **Kheireddin Kadri** - Chercheur R&D Aptiskills, intervenant dans différent établissement
 - **Stéphane Jamin-Normand** - Enseignant à l'ISEN, formateur référent de l'école IA
 
 ![intervenants](ressources/Kheireddin KADRI-2©MG-2022 (1).jpg)
