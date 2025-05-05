@@ -1,6 +1,6 @@
 # Atelier GAN - Web scraping
 
-![web scraping infographie](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.shutterstock.com%2Ffr%2Fsearch%2Fweb-scraping&psig=AOvVaw3-xIRLA5G1BVws9CTa22n_&ust=1746512652880000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCNCU3O3Yi40DFQAAAAAdAAAAABAE)
+![web scraping infographie](web-scraping.webp)
 
 Le **web scraping** est une technique qui permet d’extraire automatiquement des informations à partir de pages web.
 Il est utilisé, par exemple, pour :
