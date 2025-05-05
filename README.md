@@ -10,7 +10,7 @@ Nous mettrons en pratique ce principe en **entraînant un GAN à générer des v
 - **Kheireddin Kadri** - Chercheur R&D Aptiskills, intervenant dans différents établissements  
 - **Stéphane Jamin-Normand** - Enseignant à l'ISEN, formateur référent de l'école IA
 
-![intervenants](ressources/Kheireddin KADRI-2©MG-2022 (1).jpg)
+![intervenants](ressources/intervenants.png)
 
 ## Labs disponibles
 
