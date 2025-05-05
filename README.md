@@ -43,6 +43,8 @@ else:
 
 ## 2. BeautifulSoup : installation et documentation
 
+![logo BeautifulSoup](bs.png)
+
 **BeautifulSoup** est une bibliothèque qui permet de lire et d’extraire facilement des éléments HTML.
 
 ### Installation
