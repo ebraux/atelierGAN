@@ -38,14 +38,14 @@ Cet atelier est conçu pour être **pratique et immersif**, avec un focus sur un
 
 ## Déroulé de l'atelier
 
-- Chapitre 1 : Les GANs
-- Chapitre 2 : MLFlow
-- Chapitre 3 : Wepscraping
-- Chapitre 4 : GANs servis dans une Web API
-- Chapitre 5 : conteneurisation avec Docker
-- Chapire 6 : les test unitaires avec PyTest
-- Chapitre 7 : les tests automatique sous GitHub
-- Chapitre final : le code complet de l'atelier
+- [Chapitre 1 : Les GANs](https://github.com/Stephane-ISEN/atelierGAN/tree/ch1_gan)
+- [Chapitre 2 : MLFlow](https://github.com/Stephane-ISEN/atelierGAN/tree/ch2_mlflow)
+- [Chapitre 3 : Wepscraping](https://github.com/Stephane-ISEN/atelierGAN/tree/ch3_wepscraping)
+- [Chapitre 4 : GANs servis dans une Web API](https://github.com/Stephane-ISEN/atelierGAN/tree/ch4_api)
+- [Chapitre 5 : conteneurisation avec Docker](https://github.com/Stephane-ISEN/atelierGAN/tree/ch5_docker)
+- [Chapire 6 : les test unitaires avec PyTest](https://github.com/Stephane-ISEN/atelierGAN/tree/ch6_tests)
+- [Chapitre 7 : les tests automatique sous GitHub](https://github.com/Stephane-ISEN/atelierGAN/tree/ch7_git)
+- [Chapitre final : le code complet de l'atelier](https://github.com/Stephane-ISEN/atelierGAN/tree/ch8_final)
 
 ### **Contact**
 📧 kheireddin.kadri@ext.devinci.fr
