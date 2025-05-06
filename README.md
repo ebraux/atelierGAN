@@ -15,6 +15,7 @@ Il fonctionne indépendamment du **système d’exploitation sous-jacent**, ce q
 ---
 
 ### Qu'est-ce qu'une image Docker ? 
+![image docker](ressources/docker_image.png)
 Une **image Docker** est un **modèle préconfiguré** qui contient le **code de l’application, son environnement et ses dépendances**.  
 
 Vous pouvez trouver de nombreuses **images prêtes à l'emploi** sur **[Docker Hub](https://hub.docker.com/)**.
