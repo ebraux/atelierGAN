@@ -165,12 +165,11 @@ Le code doit être lancé à partir du répertoire /scrap
 
 ## 6. Limites de BeautifulSoup
 
+* BeautifulSoup est dépendant de la bonne structuration de la page HTML.
 * BeautifulSoup ne voit que **le HTML initial**.
   Si le contenu est chargé **par JavaScript** (comme souvent sur les sites modernes), il ne sera pas accessible.
 * Pour ces cas, il faut utiliser :
 
   * **Selenium** → simule un navigateur réel.
   * **Playwright** → plus moderne et rapide.
-* BeautifulSoup ne remplace pas un vrai moteur de rendu et ne gère pas les interactions dynamiques.
-
 ---
