@@ -1,0 +1,15 @@
+artifact_uri: file:///home/ebraux/_LOCAL/mlops-ifremer/atelierGAN/03_mlflow_tracking/mlruns/0/5f4c138e10fe4048bbdae2e6fd32c613/artifacts
+end_time: 1746521238460
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 5f4c138e10fe4048bbdae2e6fd32c613
+run_name: test-model
+run_uuid: 5f4c138e10fe4048bbdae2e6fd32c613
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746521233180
+status: 3
+tags: []
+user_id: ebraux

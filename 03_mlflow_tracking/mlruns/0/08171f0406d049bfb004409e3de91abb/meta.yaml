@@ -1,0 +1,15 @@
+artifact_uri: file:///home/ebraux/_LOCAL/mlops-ifremer/atelierGAN/03_mlflow_tracking/mlruns/0/08171f0406d049bfb004409e3de91abb/artifacts
+end_time: 1746518917032
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 08171f0406d049bfb004409e3de91abb
+run_name: thoughtful-toad-330
+run_uuid: 08171f0406d049bfb004409e3de91abb
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746518914034
+status: 3
+tags: []
+user_id: ebraux

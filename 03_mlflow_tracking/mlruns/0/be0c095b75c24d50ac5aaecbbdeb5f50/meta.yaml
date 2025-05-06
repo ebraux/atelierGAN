@@ -1,0 +1,15 @@
+artifact_uri: file:///home/ebraux/_LOCAL/mlops-ifremer/atelierGAN/03_mlflow_tracking/mlruns/0/be0c095b75c24d50ac5aaecbbdeb5f50/artifacts
+end_time: 1746519433994
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: be0c095b75c24d50ac5aaecbbdeb5f50
+run_name: RandomForest
+run_uuid: be0c095b75c24d50ac5aaecbbdeb5f50
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746519430222
+status: 3
+tags: []
+user_id: ebraux

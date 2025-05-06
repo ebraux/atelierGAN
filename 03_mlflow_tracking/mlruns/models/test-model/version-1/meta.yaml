@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1746521549779
+current_stage: None
+description: ''
+last_updated_timestamp: 1746521549779
+name: test-model
+run_id: 5f4c138e10fe4048bbdae2e6fd32c613
+run_link: ''
+source: file:///home/ebraux/_LOCAL/mlops-ifremer/atelierGAN/03_mlflow_tracking/mlruns/0/5f4c138e10fe4048bbdae2e6fd32c613/artifacts/model
+status: READY
+status_message: null
+storage_location: file:///home/ebraux/_LOCAL/mlops-ifremer/atelierGAN/03_mlflow_tracking/mlruns/0/5f4c138e10fe4048bbdae2e6fd32c613/artifacts/model
+user_id: null
+version: 1

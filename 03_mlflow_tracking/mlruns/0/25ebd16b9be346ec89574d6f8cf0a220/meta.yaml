@@ -1,0 +1,15 @@
+artifact_uri: file:///home/ebraux/_LOCAL/mlops-ifremer/atelierGAN/03_mlflow_tracking/mlruns/0/25ebd16b9be346ec89574d6f8cf0a220/artifacts
+end_time: 1746519438095
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 25ebd16b9be346ec89574d6f8cf0a220
+run_name: SVC
+run_uuid: 25ebd16b9be346ec89574d6f8cf0a220
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746519436021
+status: 3
+tags: []
+user_id: ebraux

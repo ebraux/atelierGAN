@@ -1,0 +1,15 @@
+artifact_uri: file:///home/ebraux/_LOCAL/mlops-ifremer/atelierGAN/03_mlflow_tracking/mlruns/0/70179931c8e54c3ca469f94a6de50e47/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 70179931c8e54c3ca469f94a6de50e47
+run_name: classy-ape-982
+run_uuid: 70179931c8e54c3ca469f94a6de50e47
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746519824128
+status: 1
+tags: []
+user_id: ebraux
