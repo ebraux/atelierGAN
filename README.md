@@ -94,7 +94,6 @@ from datetime import datetime
 
 # Répertoire d’images existantes
 IMAGE_DIR = "../images"
-os.makedirs(IMAGE_DIR, exist_ok=True)
 
 # Initialise l’application FastAPI
 app = FastAPI()
