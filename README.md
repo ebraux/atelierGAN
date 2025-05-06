@@ -26,6 +26,8 @@ Vous pouvez trouver de nombreuses **images prêtes à l'emploi** sur **[Docker H
 [Docker Compose](https://docs.docker.com/compose/) est un outil qui permet de **gérer plusieurs conteneurs** avec un seul fichier **`docker-compose.yml`**.  
 Il est **idéal pour les architectures complexes** (ex: **API FastAPI + Base de données**).
 
+![docker compose](ressources/docker-compose.png)
+
 **Exemple : Définir un service API FastAPI avec MySQL dans `docker-compose.yml`**  
 ```yaml
 version: '3.9'
