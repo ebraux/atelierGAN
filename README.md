@@ -2,6 +2,8 @@
 
 Déployer un modèle d'intelligence artificielle via une **API** permet de le rendre **accessible, scalable et facilement intégrable** dans divers systèmes, sans nécessiter de redéploiement à chaque utilisation.
 
+![infographie Wen API](ressources/api_infographie.png)
+
 ### Principaux avantages
 
 * **Accessibilité** → Toute application (web, mobile, backend) peut envoyer des requêtes et obtenir des prédictions en temps réel.
