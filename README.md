@@ -99,7 +99,7 @@ import time
 URL = 'https://generated.photos/faces'
 
 # Dossier pour enregistrer les images
-IMAGE_DIR = './generated_faces'
+IMAGE_DIR = '../images'
 os.makedirs(IMAGE_DIR, exist_ok=True)
 
 # Headers pour simuler un vrai navigateur
@@ -142,6 +142,13 @@ scrape_faces(URL, max_images=5)
 * **`img.get('src')`** → récupère l’URL de l’image.
 * **`urljoin(url, img_url)`** → reconstruit une URL complète même si elle est relative.
 * **`download_image()`** → télécharge et sauvegarde l’image.
+
+### Exécuter le wep scraping
+Le code doit être lancé à partir du répertoire /scrap
+ ```bash
+ cd scrap
+ python scraper.py 
+ ```
 
 ---
 
